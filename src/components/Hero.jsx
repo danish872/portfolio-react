@@ -1,20 +1,23 @@
+import { motion } from "framer-motion";
+
 export default function Hero() {
   return (
-    <section className="hero">
-      <h1 className="fade-in">
-        Salut, moi c’est <span>Dan</span> 👋
+    <motion.section
+      className="hero"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h1>
+        Salut, moi c’est <span>Dan</span> 
       </h1>
-      <p className="fade-in delay-1">
-        Étudiant en BTS SIO | Développeur web passionné
-      </p>
-      <div className="hero-buttons fade-in delay-2">
-        <a href="#projects">
-          <button>Voir mes projets</button>
-        </a>
-        <a href="/cv_dan.pdf" download>
-          <button className="btn-outline">Mon CV</button>
-        </a>
+
+      <p>Développeur web | BTS SIO | Passionné par le code</p>
+
+      <div className="hero-buttons">
+        <button>Voir mes projets</button>
+        <button className="btn-outline">Mon CV</button>
       </div>
-    </section>
+    </motion.section>
   );
 }

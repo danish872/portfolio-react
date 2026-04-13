@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const projects = [
   {
     name: "Password Checker",
@@ -44,12 +46,21 @@ export default function Projects() {
 
       <div className="grid">
         {projects.map((p, i) => (
-          <div key={i} className="card">
+          <motion.div
+            key={i}
+            className="card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            viewport={{ once: true }}
+          >
             <h3>{p.name}</h3>
             <p>{p.desc}</p>
             <span className="tech">{p.tech}</span>
-            <a href={p.link} target="_blank">Voir sur GitHub</a>
-          </div>
+            <a href={p.link} target="_blank" rel="noreferrer">
+              Voir sur GitHub
+            </a>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,6 +1,13 @@
+import { motion } from "framer-motion";
+
 export default function Navbar() {
   return (
-    <nav className="nav">
+    <motion.nav
+      className="nav"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="logo">Dan.dev</h2>
 
       <div className="nav-links">
@@ -8,6 +15,6 @@ export default function Navbar() {
         <a href="#projects">Projets</a>
         <a href="#contact">Contact</a>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
